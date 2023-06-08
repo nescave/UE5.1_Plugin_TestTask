@@ -53,7 +53,7 @@ void AVolumeSpawnerActor::SetColor(const AStaticMeshActor* SpawnedMesh) const
 	}
 
 	const auto DynamicMaterial =
-		SpawnedMesh->GetStaticMeshComponent()->CreateDynamicMaterialInstance(0, MaterialInterface)
+		SpawnedMesh->GetStaticMeshComponent()->CreateDynamicMaterialInstance(0, MaterialInterface);
 
 	DynamicMaterial->SetVectorParameterValue(
 		DynamicMaterial->VectorParameterValues[0].ParameterInfo.Name,
