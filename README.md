@@ -1,6 +1,6 @@
 ## UE5.1_Plugin_TestTask
 
-With few screenshots i'll show how it works.
+With few screenshots I'll show how it works.
 
 Place a VolumeSpawnerActor on the scene.
 ![UnrealEditor_EF4T3uSaCH](https://github.com/nescave/UE5.1_Plugin_TestTask/assets/38581117/07c3b8b0-babe-4464-bbde-b550ffe6c1a6)
