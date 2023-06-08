@@ -1,7 +1,5 @@
 ## UE5.1_Plugin_TestTask
 
-Task was done in under 6h. 
-
 With few screenshots i'll try to showcase how to use it ( or how it does what it's supposed to)
 
 Place a VolumeSpawnerActor on the scene.
