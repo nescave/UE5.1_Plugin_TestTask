@@ -42,12 +42,12 @@ UMaterial* FVolumeSpawnerTestModule::GetValidMaterial() const
 		UMaterialFactoryNew* MaterialFactory = NewObject<UMaterialFactoryNew>();
 		UMaterial* CreatedMaterial = Cast<UMaterial>(
 			AssetToolsModule.Get().CreateAsset("M_UnLitColor", "/Game/", UMaterial::StaticClass(), MaterialFactory));
-		
+
 		if (!CreatedMaterial) return nullptr;
 		CreatedMaterial->SetShadingModel(MSM_Unlit);
 		UMaterialExpressionVectorParameter* VectorParameter =
 			NewObject<UMaterialExpressionVectorParameter>(CreatedMaterial);
-		
+
 		VectorParameter->ParameterName = FName("Color");
 		CreatedMaterial->GetExpressionCollection().AddExpression(VectorParameter);
 		CreatedMaterial->GetExpressionInputForProperty(MP_EmissiveColor)->Connect(0, VectorParameter);
@@ -92,7 +92,11 @@ UDataTable* FVolumeSpawnerTestModule::GetValidDataTable(const FString& AssetName
 
 	const FString PathToDataTableFolder = "/Game/";
 	FString DataTableName;
-	AssetName.Split("_", nullptr, &DataTableName); //Remove possible preffix (SM_)
+	
+	//Remove the number at the end of actor name
+	AssetName.Split("_", &DataTableName, nullptr, ESearchCase::IgnoreCase, ESearchDir::FromEnd);
+
+	DataTableName.RemoveFromStart("SM_"); //Remove possible preffix (SM_)
 	DataTableName += "_SpawnDataTable";
 
 	UDataTableFactory* const DataTableFactory = NewObject<UDataTableFactory>();
