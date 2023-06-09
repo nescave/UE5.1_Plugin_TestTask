@@ -92,7 +92,7 @@ UDataTable* FVolumeSpawnerTestModule::GetValidDataTable(const FString& AssetName
 
 	const FString PathToDataTableFolder = "/Game/";
 	FString DataTableName;
-	AssetName.Split("_", &DataTableName, nullptr); //Remove possible preffix (SM_)
+	AssetName.Split("_", nullptr, &DataTableName); //Remove possible preffix (SM_)
 	DataTableName += "_SpawnDataTable";
 
 	UDataTableFactory* const DataTableFactory = NewObject<UDataTableFactory>();
