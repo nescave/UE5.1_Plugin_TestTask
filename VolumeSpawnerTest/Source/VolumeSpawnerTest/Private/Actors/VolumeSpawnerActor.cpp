@@ -56,7 +56,7 @@ void AVolumeSpawnerActor::SetColor(const AStaticMeshActor* SpawnedMesh) const
 		SpawnedMesh->GetStaticMeshComponent()->CreateDynamicMaterialInstance(0, MaterialInterface);
 
 	DynamicMaterial->SetVectorParameterValue(
-		DynamicMaterial->VectorParameterValues[0].ParameterInfo.Name,
+		FName("Color"),
 		FLinearColor::MakeRandomColor());
 }
 
